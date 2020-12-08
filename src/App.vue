@@ -1,17 +1,20 @@
 <template>
     <the-header></the-header>
     <the-game></the-game>
+    <the-footer></the-footer>
 </template>
 
 <script>
 import TheHeader from './components/layout/TheHeader.vue';
 import TheGame from './components/game-field/TheGame.vue';
+import TheFooter from './components/layout/TheFooter.vue';
 
 export default {
     name: 'App',
     components: {
         TheHeader,
         TheGame,
+        TheFooter,
     },
 };
 </script>
