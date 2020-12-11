@@ -219,10 +219,22 @@ export default {
         closeDialog() {
             this.openDialog = false;
         },
+        setPinsWidth() {
+            return {
+                'min-width': this.settings.pinsNumber * 55 + 'px',
+            };
+        },
+        setResultWidth() {
+            return {
+                'min-width': this.settings.pinsNumber * 20 + 'px',
+            };
+        },
     },
     provide() {
         return {
             selectColor: this.selectColor,
+            setPinsWidth: this.setPinsWidth,
+            setResultWidth: this.setResultWidth,
         };
     },
 };

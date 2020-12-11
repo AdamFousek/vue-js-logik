@@ -10,7 +10,9 @@
             </section>
             <menu>
                 <slot name="actions">
-                    <button @click="$emit('close')">Close</button>
+                    <button class="btn btn-primary" @click="$emit('close')">
+                        Close
+                    </button>
                 </slot>
             </menu>
         </dialog>
@@ -52,6 +54,7 @@ dialog {
     padding: 0;
     margin: 0;
     overflow: hidden;
+    background-color: white;
 }
 
 header {
