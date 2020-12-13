@@ -159,15 +159,13 @@ export default {
             let hiddenPins = [...this.hiddenPins];
             let result = {};
             if (this.allGuesses.length <= this.settings.numberOfGuesses) {
-                for (let i = 0; i < guesses.length; i++) {
-                    for (let j = 0; j < hiddenPins.length; j++) {
-                        if (hiddenPins[j] === guesses[i] && j === i) {
-                            result[j] = 'black';
-                        } else if (hiddenPins[j] === guesses[i]) {
-                            if (result[j] === undefined) {
-                                result[j] = 'white';
-                            }
-                        }
+                for (let i = 0; i < this.settings.pinsNumber; i++) {
+                    let guessColor = guesses.shift();
+                    if (guessColor === hiddenPins[i]) {
+                        result[i] = 'black';
+                    } else if (hiddenPins.indexOf(guessColor) !== -1) {
+                        result[i] = 'white';
+                        hiddenPins[hiddenPins.indexOf(guessColor)] = 'done';
                     }
                 }
                 let resultArray = Object.values(result).sort();

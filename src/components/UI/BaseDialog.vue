@@ -44,7 +44,7 @@ div {
 
 dialog {
     position: fixed;
-    top: 20vh;
+    top: 5vh;
     left: 10%;
     width: 80%;
     z-index: 100;
@@ -55,6 +55,8 @@ dialog {
     margin: 0;
     overflow: hidden;
     background-color: white;
+    height: 80vh;
+    overflow-y: scroll;
 }
 
 header {
@@ -83,6 +85,7 @@ menu {
     dialog {
         left: calc(50% - 20rem);
         width: 40rem;
+        height: auto;
     }
 }
 </style>
