@@ -89,7 +89,7 @@ export default {
     data() {
         return {
             settings: {
-                colors: ['red', 'yellow', 'green', 'blue', 'purple', 'fuchsia'],
+                colors: ['red', 'yellow', 'green', 'blue', 'purple', 'orange'],
                 pinsNumber: 0,
                 repeateColors: false,
                 numberOfGuesses: 0,
@@ -160,12 +160,16 @@ export default {
             let result = {};
             if (this.allGuesses.length <= this.settings.numberOfGuesses) {
                 for (let i = 0; i < this.settings.pinsNumber; i++) {
-                    let guessColor = guesses.shift();
-                    if (guessColor === hiddenPins[i]) {
+                    if (guesses[i] === hiddenPins[i]) {
                         result[i] = 'black';
-                    } else if (hiddenPins.indexOf(guessColor) !== -1) {
+                        hiddenPins[i] = 'done';
+                        guesses[i] = '';
+                    }
+                }
+                for (let i = 0; i < this.settings.numberOfGuesses; i++) {
+                    if (hiddenPins.indexOf(guesses[i]) !== -1) {
                         result[i] = 'white';
-                        hiddenPins[hiddenPins.indexOf(guessColor)] = 'done';
+                        hiddenPins[hiddenPins.indexOf(guesses[i])] = 'done';
                     }
                 }
                 let resultArray = Object.values(result).sort();
